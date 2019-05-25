@@ -35,6 +35,7 @@ b a u u u u u u u u u u u u u u u u a b
 b a a a a a a a a a a a a a a a a a a b
 b b b b b b b b b b b b b b b b b b b b
 ```
+
 The program, when run, asks for an input string, and then outputs a square
 of characters from this string following the pattern used in the poem.
 (So for the input "baudelaire", the program outputs the above square.)

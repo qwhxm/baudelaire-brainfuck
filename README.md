@@ -1,7 +1,10 @@
 # baudelaire-brainfuck
 
-First, there was a brainfuck program. It didn't do anything useful, but even
-so, I thought it was a pity that is wasn't exactly convenient to run it.
+Some time ago, I wrote a program in the
+[esoteric](https://en.wikipedia.org/wiki/Esoteric_programming_language)
+programming language [brainfuck](https://esolangs.org/wiki/Brainfuck).
+It didn't do anything useful, but even so, I thought it was a pity that
+it wasn't exactly convenient to run it.
 
 To fix that, I created a REST "web service" using AWS Lambda and API Gateway,
 and also an HTML/JS client for it, so that the program can be run (and be
@@ -9,10 +12,10 @@ useless) more conveniently.
 
 ## Backstory
 
-Once upon a time <sup>(in 2010)</sup>, I wrote a
-[brainfuck](https://esolangs.org/wiki/Brainfuck) program inspired by
-the visual poem "Baudelaire" by Jiří Kolář – or, rather, by its representation
-I encountered in a literature textbook. It looked more or less like this:
+Once upon a time <sup><sup>(in 2010)</sup></sup>, I wrote a brainfuck program
+inspired by the visual poem "Baudelaire" by Jiří Kolář – or, rather, by its
+representation I encountered in a literature textbook. It looked more or less
+like this:
 ```
 b b b b b b b b b b b b b b b b b b b b
 b a a a a a a a a a a a a a a a a a a b
@@ -47,10 +50,12 @@ on AWS Lambda. The deployment package contains three files:
 * [baudelaire.b](backend/baudelaire.b) – The brainfuck program, in
   a "minified" form (stripped of whitespace and comments).
 * [esco](backend/esco) – The
-  [EsCo (Esoteric Combine) brainfuck interpreter](http://esco.sourceforge.net);
-  compiled statically, so that it can run in any environment without issues.
-* [baudelaire-brainfuck.py](backend/baudelaire-brainfuck.py) – The actual
-  Lambda handler (a simple Python wrapper).
+  [EsCo (Esoteric Combine) interpreter](http://esco.sourceforge.net), in the
+  form of a statically compiled binary (so that it can run in any environment
+  without issues).
+* [baudelaire-brainfuck.py](backend/baudelaire-brainfuck.py) – Simple Python
+  wrapper acting as the Lambda handler: it runs baudelaire.b with the provided
+  input using EsCo and returns the output of the interpretation.
 
 ## Frontend
 
